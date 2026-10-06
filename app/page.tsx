@@ -2,7 +2,66 @@
 
 import React, { useState, useRef } from "react";
 import Papa from "papaparse";
-import { US_NEXUS_RULES } from "../data/nexusRules";
+export interface NexusRule {
+  state: string;
+  salesThreshold: number;
+  transactionThreshold: number | null;
+  ruleType: "both" | "either" | "sales_only";
+  notes?: string;
+}
+
+export const US_NEXUS_RULES: Record<string, NexusRule> = {
+  AL: { state: "Alabama", salesThreshold: 250000, transactionThreshold: null, ruleType: "sales_only" },
+  AK: { state: "Alaska", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  AZ: { state: "Arizona", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  AR: { state: "Arkansas", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  CA: { state: "California", salesThreshold: 500000, transactionThreshold: null, ruleType: "sales_only" },
+  CO: { state: "Colorado", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  CT: { state: "Connecticut", salesThreshold: 100000, transactionThreshold: 200, ruleType: "both" },
+  DE: { state: "Delaware", salesThreshold: 0, transactionThreshold: null, ruleType: "sales_only", notes: "No state sales tax" },
+  FL: { state: "Florida", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  GA: { state: "Georgia", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  HI: { state: "Hawaii", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  ID: { state: "Idaho", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  IL: { state: "Illinois", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  IN: { state: "Indiana", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  IA: { state: "Iowa", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  KS: { state: "Kansas", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  KY: { state: "Kentucky", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  LA: { state: "Louisiana", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  ME: { state: "Maine", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  MD: { state: "Maryland", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  MA: { state: "Massachusetts", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  MI: { state: "Michigan", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  MN: { state: "Minnesota", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  MS: { state: "Mississippi", salesThreshold: 250000, transactionThreshold: null, ruleType: "sales_only" },
+  MO: { state: "Missouri", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  MT: { state: "Montana", salesThreshold: 0, transactionThreshold: null, ruleType: "sales_only", notes: "No state sales tax" },
+  NE: { state: "Nebraska", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  NV: { state: "Nevada", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  NH: { state: "New Hampshire", salesThreshold: 0, transactionThreshold: null, ruleType: "sales_only", notes: "No state sales tax" },
+  NJ: { state: "New Jersey", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  NM: { state: "New Mexico", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  NY: { state: "New York", salesThreshold: 500000, transactionThreshold: 100, ruleType: "both" },
+  NC: { state: "North Carolina", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  ND: { state: "North Dakota", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  OH: { state: "Ohio", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  OK: { state: "Oklahoma", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  OR: { state: "Oregon", salesThreshold: 0, transactionThreshold: null, ruleType: "sales_only", notes: "No state sales tax" },
+  PA: { state: "Pennsylvania", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  RI: { state: "Rhode Island", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  SC: { state: "South Carolina", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  SD: { state: "South Dakota", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  TN: { state: "Tennessee", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  TX: { state: "Texas", salesThreshold: 500000, transactionThreshold: null, ruleType: "sales_only" },
+  UT: { state: "Utah", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  VT: { state: "Vermont", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  VA: { state: "Virginia", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  WA: { state: "Washington", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  WV: { state: "West Virginia", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
+  WI: { state: "Wisconsin", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
+  WY: { state: "Wyoming", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" }
+};
 import {
   AlertTriangle,
   CheckCircle2,
