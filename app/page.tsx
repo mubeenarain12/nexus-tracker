@@ -157,11 +157,11 @@ export default function Home() {
     let cumulativeOrders = 0;
     let exceededCount = 0;
     let warningCount = 0;
-
-    const analyzed: SalesSummary[] = US_NEXUS_RULES.map((rule) => {
+    
+    const analyzed: SalesSummary[] = Object.values(US_NEXUS_RULES).map((rule: any) => {
       const userStateData =
-        stateMap[rule.code.toUpperCase()] ||
-        stateMap[rule.state.toUpperCase()] || { totalSales: 0, totalOrders: 0 };
+        stateMap[rule.code?.toUpperCase()] ||
+        stateMap[rule.state?.toUpperCase()] || { totalSales: 0, totalOrders: 0 };
 
       cumulativeSales += userStateData.totalSales;
       cumulativeOrders += userStateData.totalOrders;
