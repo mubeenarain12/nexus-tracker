@@ -57,5 +57,5 @@ export const US_NEXUS_RULES: Record<string, NexusRule> = {
   WA: { state: "Washington", code: "WA", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
   WV: { state: "West Virginia", code: "WV", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
   WI: { state: "Wisconsin", code: "WI", salesThreshold: 100000, transactionThreshold: null, ruleType: "sales_only" },
-  WY: { state: "Wyoming", code: "WY", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" }
+  WY: { state: "Wyoming", code: "WY", salesThreshold: 100000, transactionThreshold: 200, ruleType: "either" },
 };
