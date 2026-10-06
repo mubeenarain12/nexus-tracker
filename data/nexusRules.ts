@@ -1,0 +1,61 @@
+export interface StateNexusRule {
+  state: string;
+  code: string;
+  revenueThreshold: number;
+  transactionThreshold: number | null;
+  notes?: string;
+}
+
+export const US_NEXUS_RULES: StateNexusRule[] = [
+  { state: "California", code: "CA", revenueThreshold: 500000, transactionThreshold: null },
+  { state: "Texas", code: "TX", revenueThreshold: 500000, transactionThreshold: null },
+  { state: "New York", code: "NY", revenueThreshold: 500000, transactionThreshold: 100 },
+  { state: "Florida", code: "FL", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Illinois", code: "IL", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Pennsylvania", code: "PA", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Ohio", code: "OH", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Georgia", code: "GA", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "North Carolina", code: "NC", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Michigan", code: "MI", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "New Jersey", code: "NJ", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Virginia", code: "VA", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Washington", code: "WA", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Arizona", code: "AZ", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Massachusetts", code: "MA", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Tennessee", code: "TN", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Indiana", code: "IN", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Missouri", code: "MO", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Maryland", code: "MD", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Wisconsin", code: "WI", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Colorado", code: "CO", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Minnesota", code: "MN", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "South Carolina", code: "SC", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Alabama", code: "AL", revenueThreshold: 250000, transactionThreshold: null },
+  { state: "Louisiana", code: "LA", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Kentucky", code: "KY", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Oregon", code: "OR", revenueThreshold: 0, transactionThreshold: null, notes: "No state sales tax" },
+  { state: "Oklahoma", code: "OK", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Connecticut", code: "CT", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Utah", code: "UT", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Iowa", code: "IA", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Nevada", code: "NV", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Arkansas", code: "AR", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Mississippi", code: "MS", revenueThreshold: 250000, transactionThreshold: null },
+  { state: "Kansas", code: "KS", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "New Mexico", code: "NM", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Nebraska", code: "NE", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Idaho", code: "ID", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "West Virginia", code: "WV", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Hawaii", code: "HI", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "New Hampshire", code: "NH", revenueThreshold: 0, transactionThreshold: null, notes: "No state sales tax" },
+  { state: "Maine", code: "ME", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Rhode Island", code: "RI", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Montana", code: "MT", revenueThreshold: 0, transactionThreshold: null, notes: "No state sales tax" },
+  { state: "Delaware", code: "DE", revenueThreshold: 0, transactionThreshold: null, notes: "No state sales tax" },
+  { state: "South Dakota", code: "SD", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "North Dakota", code: "ND", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Alaska", code: "AK", revenueThreshold: 100000, transactionThreshold: 200, notes: "Local taxes apply" },
+  { state: "District of Columbia", code: "DC", revenueThreshold: 100000, transactionThreshold: 200 },
+  { state: "Vermont", code: "VT", revenueThreshold: 100000, transactionThreshold: null },
+  { state: "Wyoming", code: "WY", revenueThreshold: 100000, transactionThreshold: null }
+];
