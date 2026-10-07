@@ -521,6 +521,7 @@ export default function Home() {
           not constitute tax advice. Please confirm requirements with each state&apos;s department of
           revenue or a qualified tax professional.
         </p>
+           <EmailInterest />
       </main>
     </div>
   );
