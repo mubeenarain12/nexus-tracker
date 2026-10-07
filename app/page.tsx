@@ -2,6 +2,7 @@
 
 import React, { useMemo, useRef, useState } from "react";
 import Papa from "papaparse";
+import EmailInterest from "./components/EmailInterest";
 import {
   AlertTriangle,
   CheckCircle2,
