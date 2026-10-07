@@ -5,7 +5,7 @@ import type { FormEvent } from "react";
 import { Mail, CheckCircle2 } from "lucide-react";
 
 // Web3Forms se mili hui access key yahan paste karein
-const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+const ACCESS_KEY = "1ae335d0-c659-44fb-bb67-841c31f6df1e";
 
 type Status = "idle" | "loading" | "success" | "error";
 
